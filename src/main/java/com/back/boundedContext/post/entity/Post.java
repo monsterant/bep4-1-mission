@@ -1,23 +1,19 @@
-package com.back.entity;
+package com.back.boundedContext.post.entity;
 
 
-import com.back.jpa.entity.BaseIdAndTime;
+import com.back.boundedContext.member.entity.Member;
+import com.back.global.entity.BaseIdAndTime;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
 import lombok.NoArgsConstructor;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
-import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static jakarta.persistence.CascadeType.PERSIST;
 import static jakarta.persistence.CascadeType.REMOVE;
-import static jakarta.persistence.FetchType.LAZY;
 import static jakarta.persistence.FetchType.LAZY;
 
 @Entity
