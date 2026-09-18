@@ -1,4 +1,4 @@
-package com.back.global.entity;
+package com.back.global.jpa.entity;
 
 import com.back.global.global.GlobalConfig;
 import jakarta.persistence.MappedSuperclass;
