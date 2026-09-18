@@ -4,6 +4,7 @@ import com.back.boundedContext.member.app.MemberFacade;
 import com.back.boundedContext.member.domain.Member;
 import com.back.boundedContext.post.app.PostFacade;
 import com.back.boundedContext.post.domain.Post;
+import com.back.boundedContext.post.domain.PostMember;
 import com.back.global.rsData.RsData;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.ApplicationRunner;
@@ -58,9 +59,9 @@ public class DataInit {
             return;
         }
 
-        Member user1Member = memberFacade.findByUsername("user1").orElseThrow(() -> new RuntimeException("회원 없음"));
-        Member user2Member = memberFacade.findByUsername("user2").orElseThrow(() -> new RuntimeException("회원 없음"));
-        Member user3Member = memberFacade.findByUsername("user3").orElseThrow(() -> new RuntimeException("회원 없음"));
+        PostMember user1Member = postFacade.findMemberByUsername("user1").orElseThrow(() -> new RuntimeException("회원 없음"));
+        PostMember user2Member = postFacade.findMemberByUsername("user2").orElseThrow(() -> new RuntimeException("회원 없음"));
+        PostMember user3Member = postFacade.findMemberByUsername("user3").orElseThrow(() -> new RuntimeException("회원 없음"));
 
         RsData<Post> post1RsData = postFacade.write(user1Member, "제목1", "내용1");
         log.debug(post1RsData.getMsg());
@@ -85,9 +86,9 @@ public class DataInit {
     public void makeBasePostComments() {
 
 
-        Member user1Member = memberFacade.findByUsername("user1").orElseThrow(() -> new RuntimeException("회원 없음"));
-        Member user2Member = memberFacade.findByUsername("user2").orElseThrow(() -> new RuntimeException("회원 없음"));
-        Member user3Member = memberFacade.findByUsername("user3").orElseThrow(() -> new RuntimeException("회원 없음"));
+        PostMember user1Member = postFacade.findMemberByUsername("user1").orElseThrow(() -> new RuntimeException("회원 없음"));
+        PostMember user2Member = postFacade.findMemberByUsername("user2").orElseThrow(() -> new RuntimeException("회원 없음"));
+        PostMember user3Member = postFacade.findMemberByUsername("user3").orElseThrow(() -> new RuntimeException("회원 없음"));
         Post post1 = postFacade.findById(1).orElseThrow();
         Post post2 = postFacade.findById(2).orElseThrow();
         Post post3 = postFacade.findById(3).orElseThrow();
