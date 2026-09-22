@@ -8,7 +8,7 @@ import com.back.shared.member.dto.MemberDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
+import com.back.shared.market.dto.OrderDto;
 import java.util.Optional;
 
 @Service
@@ -40,10 +40,9 @@ public class CashFacade {
     }
 
     @Transactional
-    public void handle(MarketOrderPaymentRequestedEvent event) {
-        cashCompleteOrderPaymentUseCase.handle(event);
+    public void completeOrderPayment(OrderDto order, long pgPaymentAmount) {
+        cashCompleteOrderPaymentUseCase.completeOrderPayment(order, pgPaymentAmount);
     }
-
     @Transactional(readOnly = true)
     public Optional<Wallet> findWalletByHolderId(int holderId) {
         return cashSupport.findWalletByHolderId(holderId);
