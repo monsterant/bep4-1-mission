@@ -95,6 +95,7 @@ public class MarketFacade {
 
     @Transactional
     public void requestPayment(Order order, long pgPaymentAmount) {
+        order = marketSupport.findOrderById(order.getId()).orElseThrow();
         order.requestPayment(pgPaymentAmount);
     }
 

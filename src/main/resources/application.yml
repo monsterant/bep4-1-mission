@@ -4,6 +4,8 @@ server:
 spring:
   application:
     name: back
+  config:
+    import: optional:file:.env[.properties]
 
   profiles:
     active: dev
@@ -46,3 +48,9 @@ logging:
     username: sa
     password:
     driver-class-name: org.h2.Driver
+
+  custom:
+    market:
+      toss:
+        payments:
+          secretKey: ${TOSS_PAYMENTS_SECRET_KEY:}
