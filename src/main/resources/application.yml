@@ -50,7 +50,16 @@ logging:
     driver-class-name: org.h2.Driver
 
   custom:
+    global:
+      internalBackUrl: http://localhost:${server.port:8080}
+      holdingMemberId: 2
+    member:
+      password:
+        changeDays: 90
     market:
       toss:
         payments:
           secretKey: ${TOSS_PAYMENTS_SECRET_KEY:}
+
+    product:
+      payoutRate: 90

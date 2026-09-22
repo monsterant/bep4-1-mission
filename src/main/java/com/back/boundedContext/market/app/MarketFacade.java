@@ -92,7 +92,9 @@ public class MarketFacade {
     public Optional<Order> findOrderById(int id) {
         return marketSupport.findOrderById(id);
     }
-
+    // TODO: 강사 코드에서는 재조회 없이 동작.
+    // open-in-view=false + buyer LAZY 환경에서
+    // OrderDto의 buyer.nickname 접근 시 LazyInitializationException 발생하여 임시 재조회.
     @Transactional
     public void requestPayment(Order order, long pgPaymentAmount) {
         order = marketSupport.findOrderById(order.getId()).orElseThrow();
