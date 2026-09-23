@@ -4,10 +4,8 @@ import com.back.boundedContext.payout.domain.Payout;
 import com.back.boundedContext.payout.domain.PayoutMember;
 import com.back.boundedContext.payout.out.PayoutMemberRepository;
 import com.back.boundedContext.payout.out.PayoutRepository;
-import com.back.shared.payout.dto.PayoutMemberDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
@@ -15,8 +13,8 @@ public class PayoutCreatePayoutUseCase {
     private final PayoutRepository payoutRepository;
     private final PayoutMemberRepository payoutMemberRepository;
 
-    public Payout createPayout(PayoutMemberDto payee) {
-        PayoutMember _payee = payoutMemberRepository.getReferenceById(payee.getId());
+    public Payout createPayout(int payeeId) {
+        PayoutMember _payee = payoutMemberRepository.getReferenceById(payeeId);
 
         Payout payout = payoutRepository.save(
                 new Payout(
