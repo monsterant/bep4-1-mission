@@ -49,6 +49,8 @@ public class PayoutDataInit {
     public ApplicationRunner payoutDataInitApplicationRunner() {
         return args -> {
             self.forceMakePayoutReadyCandidatesItems();
+
+            //하단이정산실질인가보네.
             self.collectPayoutItemsMore();
 
             self.completePayoutsMore();
